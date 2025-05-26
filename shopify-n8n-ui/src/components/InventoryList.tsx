@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchInventoryItems, updateItemStatus } from '../services/api';
+import { fetchInventory, updateItemStatus } from '../services/api';
 import { InventoryItem } from '../types';
 
 const InventoryList: React.FC = () => {
@@ -10,7 +10,7 @@ const InventoryList: React.FC = () => {
     useEffect(() => {
         const loadInventoryItems = async () => {
             try {
-                const items = await fetchInventoryItems();
+                const items = await fetchInventory();
                 setInventoryItems(items);
             } catch (err) {
                 setError('Failed to load inventory items.');
@@ -22,7 +22,7 @@ const InventoryList: React.FC = () => {
         loadInventoryItems();
     }, []);
 
-    const handleStatusChange = async (itemId: string, newStatus: string) => {
+    const handleStatusChange = async (itemId: string, newStatus: "draft" | "listed" | "new") => {
         try {
             await updateItemStatus(itemId, newStatus);
             setInventoryItems(prevItems =>
