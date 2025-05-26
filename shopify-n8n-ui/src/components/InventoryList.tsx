@@ -49,7 +49,7 @@ const InventoryList: React.FC = () => {
             <ul>
                 {inventoryItems.map(item => (
                     <li key={item.id}>
-                        <span>{item.name} - {item.status}</span>
+                        <span>{item.title} - {item.status}</span>
                         <button onClick={() => handleStatusChange(item.id, 'listed')}>List</button>
                         <button onClick={() => handleStatusChange(item.id, 'draft')}>Draft</button>
                     </li>
