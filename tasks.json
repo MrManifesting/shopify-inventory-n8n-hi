@@ -7,8 +7,9 @@
       "name": "Debug shopify-n8n-ui React App",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/shopify-n8n-ui/src",
-      "preLaunchTask": "npm: start",
-      "cwd": "${workspaceFolder}/shopify-n8n-ui"
+
+      "cwd": "${workspaceFolder}/shopify-n8n-ui",
+      "preLaunchTask": "npm: start"
     }
   ]
 }
